@@ -1,0 +1,11 @@
+--- package.json.orig	2012-03-28 18:44:43.000000000 -0700
++++ package.json	2012-04-26 19:08:33.741860892 -0700
+@@ -15,7 +15,7 @@
+     "node": "*"
+   },
+   "dependencies": {
+-    "lru-cache": "~1.0.5"
++    "lru-cache": "1.1.x"
+   },
+   "devDependencies": {
+     "tap": ""

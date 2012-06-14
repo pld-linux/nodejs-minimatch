@@ -1,18 +1,18 @@
-%define		git_hash 6e8c1c6
 %define		pkg	minimatch
 Summary:	JavaScript glob matcher
 Name:		nodejs-%{pkg}
-Version:	0.0.4
+Version:	0.2.4
 Release:	1
 License:	MIT
 Group:		Development/Libraries
 URL:		https://github.com/isaacs/minimatch
-# download from https://github.com/isaacs/%{pkg}/tarball/%%{version}
-Source0:	isaacs-%{pkg}-%{version}-0-g%{git_hash}.tar.gz
-# Source0-md5:	87077d75141c301d4b6a4e0af68276a1
+Source0:	http://registry.npmjs.org/minimatch/-/minimatch-%{version}.tgz
+# Source0-md5:	8ebe9a77e7e120aaa473052a5324b995
+# fix deps to newer version in RPMs
+Patch0:		nodejs-minimatch-fixdeps.patch
 BuildRequires:	rpmbuild(macros) >= 1.634
 Requires:	nodejs
-Requires:	nodejs-lru-cache
+Requires:	nodejs-lru-cache >= 1.1.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -21,7 +21,8 @@ Converts glob expressions to JavaScript "RegExp" objects.
 
 %prep
 %setup -qc
-mv isaacs-%{pkg}-*/* .
+mv package/* .
+%patch0 -p0
 
 %install
 rm -rf $RPM_BUILD_ROOT
