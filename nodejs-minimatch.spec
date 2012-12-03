@@ -1,18 +1,18 @@
 %define		pkg	minimatch
 Summary:	JavaScript glob matcher
 Name:		nodejs-%{pkg}
-Version:	0.2.4
+Version:	0.2.8
 Release:	1
 License:	MIT
 Group:		Development/Libraries
 URL:		https://github.com/isaacs/minimatch
 Source0:	http://registry.npmjs.org/minimatch/-/minimatch-%{version}.tgz
-# Source0-md5:	8ebe9a77e7e120aaa473052a5324b995
+# Source0-md5:	aab77712c6130f66c6a39c16bc9f4993
 # fix deps to newer version in RPMs
-Patch0:		nodejs-minimatch-fixdeps.patch
 BuildRequires:	rpmbuild(macros) >= 1.634
 Requires:	nodejs
-Requires:	nodejs-lru-cache >= 1.1.0
+Requires:	nodejs-lru-cache >= 2.0.0, nodejs-lru-cache < 2.1.0
+Requires:	nodejs-sigmund >= 1.0.0, nodejs-sigmund < 1.1.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -22,7 +22,6 @@ Converts glob expressions to JavaScript "RegExp" objects.
 %prep
 %setup -qc
 mv package/* .
-%patch0 -p0
 
 %install
 rm -rf $RPM_BUILD_ROOT
