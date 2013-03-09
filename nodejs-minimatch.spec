@@ -1,13 +1,13 @@
 %define		pkg	minimatch
 Summary:	JavaScript glob matcher
 Name:		nodejs-%{pkg}
-Version:	0.2.9
+Version:	0.2.11
 Release:	1
 License:	MIT
 Group:		Development/Libraries
 URL:		https://github.com/isaacs/minimatch
 Source0:	http://registry.npmjs.org/minimatch/-/minimatch-%{version}.tgz
-# Source0-md5:	be1e5c3f880e3c40b0e0886b53665d4b
+# Source0-md5:	0891b8addfc6930824331eec9e8e0aa5
 # fix deps to newer version in RPMs
 BuildRequires:	rpmbuild(macros) >= 1.634
 Requires:	nodejs
