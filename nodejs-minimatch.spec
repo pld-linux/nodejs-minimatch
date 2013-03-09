@@ -11,8 +11,8 @@ Source0:	http://registry.npmjs.org/minimatch/-/minimatch-%{version}.tgz
 # fix deps to newer version in RPMs
 BuildRequires:	rpmbuild(macros) >= 1.634
 Requires:	nodejs
-Requires:	nodejs-lru-cache >= 2.0.0
-Requires:	nodejs-lru-cache < 2.1.0
+Requires:	nodejs-lru-cache >= 2
+Requires:	nodejs-lru-cache < 3
 Requires:	nodejs-sigmund >= 1.0.0
 Requires:	nodejs-sigmund < 1.1.0
 BuildArch:	noarch
